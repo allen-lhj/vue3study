@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2 class="counter"></h2>
+  <button class="increment">+1</button>
+  <button class="decrement">-1</button>
+
+  <script>
+    var counterEl = document.getElementsByClassName('counter')[0];
+    var incrementEl = document.getElementsByClassName('increment')[0];
+    var decrementEl = document.getElementsByClassName('decrement')[0];
+
+    let count = 100;
+    counterEl.innerHTML = count;
+    incrementEl.addEventListener('click', function() {
+      count += 1;
+      counterEl.innerHTML = count
+    })
+
+    decrementEl.addEventListener('click', function() {
+      count -= 1;
+      counterEl.innerHTML = count
+    })
+  </script>
+</body>
+</html>
