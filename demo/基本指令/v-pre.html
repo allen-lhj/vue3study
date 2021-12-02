@@ -7,19 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app"></div>                        
+    <div id="app"></div>
     <template id="my-app">
-      <div v-html="message"></div>
+      <h2 v-pre>{{message}}</h2>
     </template>
     <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.js"></script>
     <script>
-      // 默认情况下我们展示的内容本身就是html的，如下面的message，那么vue不会当作html对其进行解析
-      // 而是原样输入，如果希望这个内容可以被Vue解析出来，那么可以使用v-html来展示
+      // v-pre用于跳过元素和它的子元素的编译过程，显示原始的Mustache标签
+      // 跳过不需要编译的节点，加快编译的速度
       const App = {
         template: '#my-app',
         data() {
           return {
-            message: "<span style='color:red;background:blue'>哈哈哈</span>"
+            message: "Hello World"
           }
         }
       }

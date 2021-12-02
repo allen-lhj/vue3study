@@ -7,19 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app"></div>                        
+    <div id="app"></div>
     <template id="my-app">
-      <div v-html="message"></div>
+      <h2 v-if="message > 2">{{message}}</h2>
+      <h2 v-show="message > 2">{{message}}</h2>
     </template>
     <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.js"></script>
     <script>
-      // 默认情况下我们展示的内容本身就是html的，如下面的message，那么vue不会当作html对其进行解析
-      // 而是原样输入，如果希望这个内容可以被Vue解析出来，那么可以使用v-html来展示
+      // 本质区别:v-show无论元素是否显示到浏览器上,元素都会渲染只是通过css切换
+      // 如果我们的元素需要频繁切换,使用v-show.不会频繁切换使用v-if
       const App = {
         template: '#my-app',
         data() {
           return {
-            message: "<span style='color:red;background:blue'>哈哈哈</span>"
+            message: 3
           }
         }
       }

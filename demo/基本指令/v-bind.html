@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .active {
+        color: red;
+      }
+      .title {
+        font-size: 30px;
+      }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+      <h2>{{message}}</h2>
+      <a :href="href"></a>
+      <div :class="{active: isActive, title: true}">哈哈哈</div>
+      <div :class="['abc', 'title']">哈哈哈</div>
+    </template>
+    <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.js"></script>
+    <script>
+      // v-bind 一系列指令是将值插入到模板内容中
+      // 但是除了内容需要动态以外,某些属性也希望动态绑定.
+      // 比如动态绑定a元素的href属性,或者img的src属性
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: "Hello World",
+            href: 'www.baidu.com',
+            isActive: true
+          }
+        }
+      }
+      Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
